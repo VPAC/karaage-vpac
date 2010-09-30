@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block login_bar %}
+{% if user.is_authenticated %}
+<p class="float-right">
+  Logged in as {{ user }}&nbsp;&nbsp;
+  <a href="{% url kg_user_profile %}">My Account</a>&nbsp;&nbsp;|&nbsp;&nbsp;  
+  <a href="{% url logout %}">Logout</a>
+</p>
+<br class="clear"/>
+{% endif %}
+{% endblock %}
+
+
+{% block bodyclass %}{% endblock %}
