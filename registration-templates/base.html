@@ -69,7 +69,16 @@
 							<li class="last menu-1-7-2"><a href="/media" class="menu-1-7-2">Media</a></li>
 						</ul>        	
 							<div class="shadow-full-width"></div>
-
+								{% if messages %}
+								<ul class="messagelist">
+   							{% for message in messages %}<li>{{ message }}</li>{% endfor %}
+								</ul>
+								{% endif %}
+								{% if pending_applications %}
+								<ul class="messagelist">
+								<li>You have <a href="{% url kg_application_pendinglist %}">pending applications</a> that require your approval.</li>
+								</ul>
+								{% endif %}
       			</div> <!-- /header -->
       
 					{% block sidebar %}{% endblock %}
@@ -79,6 +88,7 @@
       				<div id="squeeze">
       					<div class="right-corner">
       						<div class="left-corner">
+      						
           						<div class="breadcrumb">
           							<a href="/">Home</a> &rsaquo; <a href="/users">HPC Users</a>
           						</div>   
@@ -87,13 +97,8 @@
   											<div class="content">
 
     											{% block login_bar %}{% endblock %}
-    	
+    											
     											<br class="clear" />
-     											{% if messages %}
-												<ul class="messagelist">
-   												{% for message in messages %}<li>{{ message }}</li>{% endfor %}
-												</ul>
-												{% endif %}
 	
 												{% block content %}{% endblock %}
 
@@ -135,7 +140,18 @@
   					</div>
 
 <!-- /layout -->
-{% if not debug %}
+{% if debug %}
+    <p>{{ sql_queries|length }} sql queries</p>
+    
+    <table>
+    {% for q in sql_queries %}
+    <tr>
+    <td>{{ q.time }}</td>
+    <td>{{ q.sql }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+    {% else %}
   <script type="text/javascript">document.write(unescape("%3Cscript src='http://www.google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script>
 <script type="text/javascript">var pageTracker = _gat._getTracker("UA-60664-6");pageTracker._initData();pageTracker._trackPageview();</script>
 <script type="text/javascript" src="/modules/google_analytics/downloadtracker.js"></script>
