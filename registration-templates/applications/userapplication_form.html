@@ -51,7 +51,9 @@ can <a href="{% url kg_user_profile %}">log in</a> to join new or additional pro
 {% inlineformfield applicant_form.position applicant_form.supervisor %}
 {% inlineformfield applicant_form.telephone applicant_form.mobile %}
 </fieldset>
-
+<fieldset class="module aligned ()">
+{% formfield form.captcha %}
+</fieldset>
 </div>
 <div class="submit-row">
 		<input type="submit" value="Submit" class="default" />
