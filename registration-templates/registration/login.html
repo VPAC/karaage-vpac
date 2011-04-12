@@ -43,7 +43,7 @@
 {{ samlform.non_field_errors }}
 {% endif %}
 
-{% if saml_enabled %}
+{% if saml_enabled and not request.META.HTTP_PERSISTENT_ID %}
 <p class="saml-switch">Or log in using the <a href="#"><img src="https://ds.aaf.edu.au/AAF/images/aaf_button.png" alt="AAF" /></a>.</p>
 {% endif %}
 <p class="regular-switch" style="display: none">Or log in with your <a href="#">{{ org_name }} username/password</a>.</p>
