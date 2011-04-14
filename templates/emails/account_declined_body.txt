@@ -1,4 +1,4 @@
-Hello {{ receiver }},
+Hello {{ receiver.first_name }},
 
 Your {{ org_name }} computer account has been declined by a leader of the project "{{ project }}".
 

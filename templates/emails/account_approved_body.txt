@@ -1,4 +1,4 @@
-Hello {{ receiver }},
+Hello {{ receiver.first_name }},
 
 Your application to join the {{ org_name }} project "{{ project }}" has been approved.
 
