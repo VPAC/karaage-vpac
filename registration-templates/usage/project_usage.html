@@ -20,7 +20,8 @@
 
 {#<h1><a href="{{ project.get_absolute_url }}">{{ project }}</a></h1>#}
 <h1>{{ project }}</h1>
-	<p>Project Leader: {{ project.leader }}</p>
+<p>Leader{{ project.leaders.all|pluralize }}: 
+{% for leader in project.leaders.all %}<a href="{{ leader.get_absolute_url }}">{{ leader }}</a> {% endfor %}</p>
 	<div class="module">
    	<h2>Users</h2>
    	
@@ -62,7 +63,7 @@
 		{% endif %}		
    	</table>
 	</div>
-	<img src="{{ MEDIA_URL }}graphs/projects/{{ graph }}" alt="Usage Graph" />
+	<img src="{{ GRAPH_URL }}projects/{{ graph }}" alt="Usage Graph" />
 
 </div>
 {% endblock %}
