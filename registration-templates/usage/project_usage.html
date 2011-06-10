@@ -1,0 +1,68 @@
+{% extends "main.html" %}
+{% block title %}Usage{% endblock %}
+
+{% block content_title %}{% endblock %}
+
+{% block breadcrumbs %}
+ {{ block.super }}
+ &rsaquo; <a href="../../../?{{ querystring }}">Usage</a>
+ &rsaquo; <a href="../?{{ querystring }}">{{ project.institute }}</a>
+{% endblock %}
+     
+{% load humanize %}
+{% load filters %}
+{% block content %}
+<div id="content-main">
+<h1>{{ machine_category }}</h1>
+<h2>Usage {{ start|date }} - {{ end|date }}</h2>
+
+<p>{% date_filter start end %}</p>
+
+{#<h1><a href="{{ project.get_absolute_url }}">{{ project }}</a></h1>#}
+<h1>{{ project }}</h1>
+	<p>Project Leader: {{ project.leader }}</p>
+	<div class="module">
+   	<h2>Users</h2>
+   	
+   	<table>
+			<thead>
+			<tr>
+				<th>User</th>
+				<th>CPU Time</th>
+				<th>No. Jobs</th>
+				<th>% of project</th>
+				<th>Colour</th>
+			</tr>   	
+   	</thead>
+   	
+   	{% if usage_list %}
+   	<tfoot>
+			<tr>
+				<td>Total</td>
+				<td class="right">{{ total|timeformat }}</td>	
+				<td class="right">{{ total_jobs|intcomma }}</td>	
+				<td>&nbsp;</td>
+			</tr>		
+		</tfoot> 
+		<tbody>
+   	{% for u in usage_list|dictsortreversed:"usage" %}
+			<tr class="{% cycle row1,row2 %}">
+				<td>{{ u.user }}</td>
+				<td class="right">{{ u.usage|timeformat}}</td>	
+				<td class="right">{{ u.jobs|intcomma }}</td>
+				<td class="right">{{ u.percent|floatformat:"2" }}%</td>
+				<td class="graph_key_{{ u.colour }}"></td>
+			</tr> 
+		{% endfor %}
+		</tbody>	
+		{% else %}
+			<tr class="{% cycle row1,row2 %}">
+				<td colspan="4">No usage for that time period</td>
+			</tr> 
+		{% endif %}		
+   	</table>
+	</div>
+	<img src="{{ MEDIA_URL }}graphs/projects/{{ graph }}" alt="Usage Graph" />
+
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "forms-side.html" %}
+{% load common forms %}
+{% block title %}Home{% endblock %}
+
+{% block content_title %}Apply for an Account{% endblock %}
+
+{% block breadcrumbs %}Home{% endblock %}
+    
+{% block content %}
+<div id="content-main">
+
+<p>Staff and students employed or enrolled at any of VPAC’s <a href="/services/collaborators">Member Universities</a> may gain access to VPAC’s High Performance Computing Facilities at no additional cost, subject to approval by their University’s Operations Committee Member.</p>
+
+<p>Access may also be provided to Industry, however, is subject to an appropriate arrangement with VPAC. Interested persons should contact <a href="mailto:help@vpac.org">help@vpac.org</a>.</p>
+
+<p>As a Member of VPAC, each University has a pre-determined share of VPAC’s High Performance Computing capacity. Each University permits their share to be used by researchers and students conducting approved research consistent with the University's policies.</p>
+
+<p>A staff or student who wishes to apply for an account will require a personal account and must be associated with a University approved Project. All Projects are approved by the respective University’s Operations Committee Member.</p>
+
+<p>Upon approval, authority is provided to the nominated Project Leader to authorise personal accounts associated with the Project.</p>
+
+<h2>Existing users</h2>
+<p>If you already have a VPAC Account, <a href="{% url kg_user_profile %}">login to view and edit your account details</a>.</p>
+
+<h2>Start new application</h2>
+<p>All users of VPAC’s High Performance Computing Facility must agree to the <a href="/users/policy">VPAC Acceptable Use Policy</a></p>
+<p>Please choose your institution and type to start your application</p>
+<form method="post" action=".">{% csrf_token %}
+{% form_as_div form %}
+<input type="submit" value="Start Application" class="default" />
+</form>
+
+<p>A personal account is required for each user wishing to access VPAC’s High Performance Computing Facility. You will be required to enter project identification details to link your account to the approved Project.</p>
+
+<h2>Contact</h2>
+
+<p>Contact <a href="mailto:help@vpac.org">help@vpac.org</a> for further information.</p>
+
+
+</div>
+{% endblock %}

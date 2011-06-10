@@ -1,5 +1,5 @@
-{% extends "base_site.html" %}
-
+{% extends "forms.html" %}
+{% load forms %}
 {% block stylesheet %}base{% endblock %}
 {% block bodyclass %}login{% endblock %}
 {% block usertools %}{% endblock %}
@@ -33,7 +33,7 @@
 {% endblock %}
 
 {% block content %}
-<h1>Login to Karaage</h1>
+<h1>Login Required</h1>
 {% if form.errors or form.non_field_errors%}
 {{ form.errors }}
 {{ form.non_field_errors }}
@@ -42,11 +42,6 @@
 {% if samlform.errors %}
 {{ samlform.non_field_errors }}
 {% endif %}
-
-{% if saml_enabled and not request.META.HTTP_PERSISTENT_ID %}
-<p class="saml-switch">Or log in using the <a href="#"><img src="https://ds.aaf.edu.au/AAF/images/aaf_button.png" alt="AAF" /></a>.</p>
-{% endif %}
-<p class="regular-switch" style="display: none">Or log in with your <a href="#">{{ org_name }} username/password</a>.</p>
 
 <div id="regular_login_fields">
   {% if request.META.HTTP_PERSISTENT_ID %}
@@ -62,10 +57,8 @@
   {% endif %}
   
   <form method="post" action=".">{% csrf_token %}
-    <table>
-      <tr><td><label for="id_username">Username:</label></td><td>{{ form.username }}</td></tr>
-      <tr><td><label for="id_password">Password:</label></td><td>{{ form.password }}</td></tr>
-    </table>
+    {% formfield form.username %}
+    {% formfield form.password %}
     <input type="submit" value="login" />
     {% if next %}
     <input type="hidden" name="next" value="{{ next }}" />
@@ -76,10 +69,7 @@
   <img src="https://ds.aaf.edu.au/AAF/images/aaf_button.png"/>
     
   <form method="post" action="{% url kg_saml_login %}">{% csrf_token %}
-    <table class="float-left">
-      <tr><td><label for="id_institute">Institute:</label></td><td>{{ samlform.institute }}</td></tr>
-    </table>
-    
+    {% formfield samlform.institute %}
     <input type="submit" value="AAF login"/>
     {% if next %}
     <input type="hidden" name="next" value="{{ next }}" />
@@ -87,8 +77,20 @@
   </form>
   
 </div>
+
+{% if saml_enabled and not request.META.HTTP_PERSISTENT_ID %}
+<p class="saml-switch">Or <a href="#">log in</a> using the <a href="#">Australian Access Federation</a>.</p>
+{% endif %}
+<p class="regular-switch" style="display: none">Or log in with your <a href="#">{{ org_name }} username/password</a>.</p>
+
 {% if saml_enabled %}
 <p><a href="http://www.vpac.org/what-is-aaf">What is the AAF?</a></p>
 {% endif %}
+
+<h3>Don't have a username?</h3>
+<p><a href="{% url kg_application_index %}">Sign up for an account</a></p>
+<h3>Forgot your password?</h3>
+<p>Ring us on (03) 9925 4410 and we'll sort one out for you.</p>
+
 
 {% endblock %}
