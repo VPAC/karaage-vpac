@@ -2,7 +2,7 @@ Hello {{ receiver.first_name }},
 
 Your application to join the {{ org_name }} project "{{ project }}" has been approved.
 
-You can log into the {{ org_name }} account management tool to see the status of your account by going to https://www.vpac.org/accounts{{ site }}.
+You can log into the {{ org_name }} account management tool to see the status of your account by going to {{ site }}.
 
 For your records, your username is: {{ receiver.username }}
 
