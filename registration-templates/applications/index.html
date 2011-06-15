@@ -8,10 +8,9 @@
     
 {% block content %}
 <div id="content-main">
-
+{% if user.is_anonymous %}
 <h2>Existing users</h2>
 <p>If you already have a VPAC Account, <a href="{% url kg_user_profile %}">login to view and edit your account details</a>.</p>
-
 <h2>Start new application</h2>
 <p>All users of VPAC’s High Performance Computing Facility must agree to the <a href="/users/policy">VPAC Acceptable Use Policy</a></p>
 <p>Please choose your institution and type to start your application</p>
@@ -21,7 +20,9 @@
 </form>
 
 <p>A personal account is required for each user wishing to access VPAC’s High Performance Computing Facility. You will be required to enter project identification details to link your account to the approved Project.</p>
-
+{% else %}
+<p>Hi {{ user.first_name }}, please go to <a href="{% url kg_user_profile %}">your account</a> to start new applications.</p>
+{% endif %}
 <h2>Contact</h2>
 
 <p>Contact <a href="mailto:help@vpac.org">help@vpac.org</a> for further information.</p>
