@@ -12,7 +12,7 @@
 {% block content %}
 {% if application.project %}
 <p>{{ application.created_by }} has invited you to join the following {{ org_name }} project:</p>
-<p>PID: {{ application.project.pid }}<br/>Title: {{ application.project.name }}</p>
+<p>Project ID: {{ application.project.pid }}<br/>Title: {{ application.project.name }}</p>
 {% else %}
 <p>A username at {{ org_name }} does not allow a user to run jobs or use resources unless the 
 user is a member of an <a href="{% url kg_new_projectapplication %}">approved project</a>.</p>
