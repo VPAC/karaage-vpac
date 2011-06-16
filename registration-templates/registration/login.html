@@ -45,7 +45,7 @@
 <div id="regular_login_fields">
   {% if request.META.HTTP_PERSISTENT_ID %}
   <ul class="errorlist">
-    <li>Because this is the first time you have logging in using your AAF credentials please log in using your {{ org_name }} username/password to link your account with your AAF identity.</li>
+    <li>Because this is the first time you have logged in using your AAF credentials please log in using your {{ org_name }} username/password to link your account with your AAF identity.</li>
   </ul>
   {% else %}
   {% if request.META.HTTP_SHIB_SESSION_ID %}

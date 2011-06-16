@@ -1,5 +1,5 @@
 {% extends "forms.html" %}
-
+{% load forms %}
 {% block title %}Applications{% endblock %}
 
 {% block content_title %}New User Application{% endblock %}
@@ -10,6 +10,9 @@
 {% endblock %}   
 
 {% block content %}
+{% if saml %}
+<p>Hi {{ saml_user.first_name}}</p>
+{% endif %}
 {% if application.project %}
 <p>{{ application.created_by }} has invited you to join the following {{ org_name }} project:</p>
 <p>Project ID: {{ application.project.pid }}<br/>Title: {{ application.project.name }}</p>
@@ -23,13 +26,10 @@ can <a href="{% url kg_user_profile %}">log in</a> to join new or additional pro
 {% endif %}
 <form method="post" action=".">{% csrf_token %}
 <div>
-{% load forms %}
 {% if form.errors or form.non_field_errors or applicant_form.errors or applicant_form.non_field_errors %}
 	<p class="errornote">Please correct the error(s) below.</p>
 {% endif %}
-{% if application.header_message %}
-{{ application.header_message|linebreaks }}
-{% endif %}
+{% if application.header_message %}{{ application.header_message|linebreaks }}{% endif %}
 <fieldset class="module aligned ()">
 {{ form.non_field_errors }}
 <h2>Account Details</h2>
@@ -42,6 +42,7 @@ can <a href="{% url kg_user_profile %}">log in</a> to join new or additional pro
 {% endif %}
 {% formfield form.aup %}
 </fieldset>
+{% if not saml %}
 <fieldset class="module aligned ()">
 <h2>Personal Details</h2>
 {% formfield applicant_form.email %}
@@ -51,9 +52,12 @@ can <a href="{% url kg_user_profile %}">log in</a> to join new or additional pro
 {% inlineformfield applicant_form.position applicant_form.supervisor %}
 {% inlineformfield applicant_form.telephone applicant_form.mobile %}
 </fieldset>
+{% endif %}
+{% if form.captcha %}
 <fieldset class="module aligned ()">
 {% formfield form.captcha %}
 </fieldset>
+{% endif %}
 </div>
 <div class="submit-row">
 		<input type="submit" value="Submit" class="default" />
