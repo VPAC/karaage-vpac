@@ -29,3 +29,18 @@ def get_vpac_users_list(user):
     returns a ml_vpac_users
     """
     return get_ml_vpac_users()
+
+
+@xmlrpc_func(returns='boolean', args=['string'])
+@permission_required(perm='projects.change_project')
+def username_exists(user, username):
+    """
+    returns true if username exists
+    """
+
+    try:
+        p = Person.objects.get(user__username=username)
+    except:
+        return False
+
+    return True
