@@ -10,7 +10,7 @@ import datetime
 
 DEBUG = False
 
-def gen_graph(width=420, height=200, bar_width=30, title=True, legend=True):
+def gen_graph(width=420, height=130, bar_width=30, title=True, legend=True):
 
 
     chart = StackedHorizontalBarChart(width, height)
@@ -68,7 +68,7 @@ if __name__ == "__main__":
         used, total, max_total, labels = gen_data(SERVERS)
 
     chart = gen_graph()
-    small_chart = gen_graph(height=120, width=250, bar_width=15, title=False, legend=False)
+    small_chart = gen_graph(height=70, width=250, bar_width=15, title=False, legend=False)
     chart.add_data(total)
     chart.add_data(used)
     small_chart.add_data(total)
