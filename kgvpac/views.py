@@ -10,7 +10,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.views.decorators.csrf import csrf_exempt
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response, get_object_or_404
-from django.contrib.sites.models import get_current_site
+#from django.contrib.sites.models import get_current_site
 from django.http import HttpResponseRedirect, Http404
 from django.template import RequestContext
 from django.utils.http import urlquote, base36_to_int
@@ -54,11 +54,11 @@ def login(request, template_name='registration/login.html',
 
     request.session.set_test_cookie()
 
-    current_site = get_current_site(request)
+    #current_site = get_current_site(request)
 
     return render_to_response(template_name, {
         'form': form,
         redirect_field_name: redirect_to,
-        'site': current_site,
-        'site_name': current_site.name,
+        #'site': current_site,
+        #'site_name': current_site.name,
     }, context_instance=RequestContext(request))
