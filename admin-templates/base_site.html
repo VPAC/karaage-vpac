@@ -11,17 +11,3 @@
 {% endif %}
 {% endblock %}
 
-{% block footer %}
-<div id="footer">
-  <p class="align-right"><a href="http://code.vpac.org/trac/karaage/">About</a> |
-    <a href="http://www.vpac.org">Karaage &copy; VPAC</a>
-  </p>
-</div>
-{% endblock %}
-
-{% block site_extrahead %}
-<script type="text/javascript" src="{% url admin:jsi18n %}"></script>
-<script type="text/javascript" src="{{ MEDIA_URL }}js/core.js"></script>
-<script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.min.js"></script>
-<script type="text/javascript" src="{{ MEDIA_URL }}js/karaage.js"></script>
-{% endblock %}
