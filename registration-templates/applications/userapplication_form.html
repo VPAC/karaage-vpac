@@ -23,6 +23,9 @@ user is a member of an <a href="{% url kg_new_projectapplication %}">approved pr
 <p>This form is a new user application and application to join a project. Existing users 
 can <a href="{% url kg_user_profile %}">log in</a> to join new or additional projects.</p>
 
+<p>All academic accounts must use your institutional email address (ie @youruniversity.edu.au). Generic email accounts 
+(ie @gmail, hotmail, etc) or personal email accounts (ie @bigpond, iinet, etc) are not acceptable.</p>
+
 {% endif %}
 <form method="post" action=".">{% csrf_token %}
 <div>
@@ -66,8 +69,3 @@ can <a href="{% url kg_user_profile %}">log in</a> to join new or additional pro
 </form>
 {% endblock %}
 
-
-{% block content_footer %}
-<p style="text-align:center">Doc: V510-0001F1/1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Issued: 17.02.2011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reviewed: 17.02.2011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;By: Sam Morrison</p>
-
-{% endblock %}
