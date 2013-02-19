@@ -1,3 +1,5 @@
+{% load url from future %}
+
 <div id="sidebar-left" class="sidebar">
   <div id="block-block-1" class="clear-block block block-block">
     
@@ -6,7 +8,7 @@
     <div class="content">
       <ul class="menu">
 	<li class="collapsed"><a href="/services/supercomputers/gpgpu" title="Information for users submitting jobs to VPAC&#039;s GPU nodes">GPU Users</a></li>
-	<li class="leaf"><a href="{% url kg_user_profile %}" class="{% active request "profile/" %}" title="Login to view and edit details of your account, projects and usage">My Account</a></li>
+	<li class="leaf"><a href="{% url 'kg_user_profile' %}" class="{% active request "profile/" %}" title="Login to view and edit details of your account, projects and usage">My Account</a></li>
     {% if user.is_anonymous %}
 	<li class="leaf"><a href="/users/apply" class="{% active request "applications/" %}">Apply for an Account</a></li>
     {% endif %}
