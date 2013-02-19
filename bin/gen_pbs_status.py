@@ -56,7 +56,7 @@ def gen_data(server_list):
 if __name__ == "__main__":
 
     SERVERS = ['tango-m.vpac.org', 
-               'edda-m.vpac.org',
+#               'edda-m.vpac.org',
                ]
 
     if DEBUG:
