@@ -35,8 +35,8 @@ can <a href="{% url kg_user_profile %}">log in</a> to join new or additional pro
 {% if application.header_message %}{{ application.header_message|linebreaks }}{% endif %}
 <fieldset class="module aligned ()">
 {{ form.non_field_errors }}
-{% if applicant_form.errors.email and saml %}{{ applicant_form.errors.email }}{% endif %}
-<h2>Account Details</h2>
+{% if applicant_form.errors.email and saml %}{{ applicant_form.errors.email }}{% endif %}<br />
+<font face="Calibri" size="4" color="1c3f94">Account Details</font><br />
 <p>This usename and password will be used for your computer account as well as access to this website.</p>
 {% formfield applicant_form.username %}
 {% formfield applicant_form.password1 %}
@@ -48,7 +48,7 @@ can <a href="{% url kg_user_profile %}">log in</a> to join new or additional pro
 </fieldset>
 {% if not saml %}
 <fieldset class="module aligned ()">
-<h2>Personal Details</h2>
+<font face="Calibri" size="4" color="1c3f94">Personal Details</font><br />
 {% formfield applicant_form.email %}
 {% formfield applicant_form.title %}
 {% inlineformfield applicant_form.first_name applicant_form.last_name %}

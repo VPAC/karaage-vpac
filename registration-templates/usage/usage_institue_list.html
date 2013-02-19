@@ -11,14 +11,14 @@
 {% load filters %}
 {% block content %}
 <div id="content-main">
-<h1>{{ machine_category }}</h1>
-<h2>Usage {{ start|date }} - {{ end|date }}</h2>
+<font face="Calibri" size="5" color="1c3f94">{{ machine_category }}</font><br />
+<font face="Calibri" size="4" color="1c3f94">Usage {{ start|date }} - {{ end|date }}</font><br />
 <p>{% date_filter start end %}</p>
 <p>No. CPU's: (average) {{ avg_cpus|floatformat:"1"  }}  Utilization: {{ utilization|floatformat:"2" }}%</p>
 <p>Total time {{ total|timeformat }} ({{ total_jobs|intcomma }} jobs) of available {{ available_time|timeformat }} </p>
 
 	<div class="module">	
-   	<h2>Institutes</h2>
+   	<font face="Calibri" size="4" color="1c3f94">Institutes</font><br />
    	<table>
 			<thead>
 			<tr>

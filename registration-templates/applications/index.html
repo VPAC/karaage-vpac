@@ -7,7 +7,7 @@
 {% block breadcrumbs %}Home{% endblock %}
     
 {% block content %}
-<p> Staff and students employed or enrolled at any of VPAC’s <a href="/services/collaboratore">Member Universities</a> may gain access to VPAC’s HPC Facilities through their University subscription program.</p>
+<p> Staff and students employed or enrolled at any of VPAC’s <a href="/about/ourmembers/">Member Universities</a> may gain access to VPAC’s HPC Facilities through their University subscription program.</p>
 
 <p>Access may also be provided to Industry, however, is subject to an appropriate arrangement with VPAC. Interested persons should contact <a href="mailto:help@vpac.org">help@vpac.org</a>.</p>
 
@@ -17,9 +17,9 @@
 
 <p>Upon approval, authority is provided to the nominated Project Leader to authorise personal accounts associated with the Project.</p>
 {% if user.is_anonymous %}
-<h2>Existing users</h2>
+<font face="Calibri" size="5" color="1c3f94">Existing users</font><br />
 <p>If you already have a VPAC Account, <a href="{% url kg_user_profile %}">login to view and edit your account details</a>.</p>
-<h2>Start new application</h2>
+<font face="Calibri" size="5" color="1c3f94">Start new application</font><br />
 <p>All users of VPAC’s High Performance Computing Facility must agree to the <a href="/users/policy">VPAC Acceptable Use Policy</a></p>
 <p>Please choose your institution and type to start your application</p>
 <form method="post" action=".">{% csrf_token %}
@@ -31,7 +31,7 @@
 {% else %}
 <p>Hi {{ user.first_name }}, please go to <a href="{% url kg_user_profile %}">your account</a> to start new applications.</p>
 {% endif %}
-<h2>Contact</h2>
+<font face="Calibri" size="4" color="1c3f94">Contact</font><br />
 
 <p>Contact <a href="mailto:help@vpac.org">help@vpac.org</a> for further information.</p>
 

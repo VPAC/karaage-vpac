@@ -19,11 +19,11 @@
 <p>{% date_filter start end %}</p>
 
 {#<h1><a href="{{ project.get_absolute_url }}">{{ project }}</a></h1>#}
-<h1>{{ project }}</h1>
+<font face="Calibri" size="5" color="1c3f94">{{ project }}</front><br />
 <p>Leader{{ project.leaders.all|pluralize }}: 
 {% for leader in project.leaders.all %}<a href="{{ leader.get_absolute_url }}">{{ leader }}</a> {% endfor %}</p>
 	<div class="module">
-   	<h2>Users</h2>
+   	<font face="Calibri" size="4" color="1c3f94">Users</font><br />
    	
    	<table>
 			<thead>
