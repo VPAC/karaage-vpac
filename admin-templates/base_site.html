@@ -1,7 +1,11 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block site_name_title %}Karaage - VPAC{% endblock %}
-{% block site_name_header %}Karaage - VPAC{% endblock %}
+{% block site_name_title %}{% trans 'Karaage' %} - VPAC{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">{% trans 'Karaage' %} - VPAC</h1>
+{% endblock %}
 
 {% block usertools %}
 {% if not is_popup %}
