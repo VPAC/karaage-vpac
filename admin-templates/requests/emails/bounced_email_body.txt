@@ -1,4 +1,4 @@
-Hello {{ receiver }},
+Hello {{ receiver.first_name }},
 
 This is in reference to your {{ org_name }} project:
 
