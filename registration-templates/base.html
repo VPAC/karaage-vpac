@@ -252,13 +252,13 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
 </div>
 <div id="menu" style="position:relative;border-right:2px solid #E0E0E0;margin-right:20px;margin-top:60px;height:600px;width:128px;float:left;">
 <b><font face="calibri"><strong>HPC USERS</strong></font></b><br />
-<a href="/HPCUsers/GPU"><font face="calibri"><small>GPU Users</small></font></a><br />
-<a href="/accounts/profile/"><font face="calibri"><small>My Account</small></font></a><br />
-<a href="/accounts/applications/"><font face="calibri"><small>Apply for an Account</small></font></a><br/>
-<a href="/HPCUsers/clusters"><font face="calibri"><small>Using the Clusters</small></font></a><br/>
-<a href="/accounts/usage/"><font face="calibri"><small>Usage Reports</small></font></a><br/>
-<a href="/HPCUsers/Applications/"><font face="calibri"><small>Applications</small></font></a><br/>
-<a href="/HPCUsers/help/"><font face="calibri"><small>Getting Help</small></font></a><br/>
+<a href="http://www.vpac.org/HPCUsers/GPU"><font face="calibri"><small>GPU Users</small></font></a><br />
+<a href="{% url 'kg_user_profile' %}"><font face="calibri"><small>My Account</small></font></a><br />
+<a href="{% url 'kg_application_index' %}"><font face="calibri"><small>Apply for an Account</small></font></a><br/>
+<a href="http://www.vpac.org/HPCUsers/clusters"><font face="calibri"><small>Using the Clusters</small></font></a><br/>
+<a href="{% url 'kg_usage_list' %}"><font face="calibri"><small>Usage Reports</small></font></a><br/>
+<a href="http://www.vpac.org/HPCUsers/Applications/"><font face="calibri"><small>Applications</small></font></a><br/>
+<a href="http://www.vpac.org/HPCUsers/help/"><font face="calibri"><small>Getting Help</small></font></a><br/>
 </div>
 {% comment %}
 <div class="form" style="position:relative;margin-top:85px;height:135px;width:230px;float:right;">
