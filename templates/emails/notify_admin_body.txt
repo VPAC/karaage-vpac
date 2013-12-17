@@ -4,7 +4,7 @@ Hi,
 
 They are now waiting for a {{ org_name }} administrator to process the application.
 
-Please visit the {{ org_name }} account management site at https://staff.vpac.org/kgadmin{{ site }} for more information and to accept or decline this request.
+Please visit the {{ org_name }} account management site at https://accounts.vpac.org/kgadmin{{ site }} for more information and to accept or decline this request.
 
 
 {% include "emails/email_footer.txt" %}
