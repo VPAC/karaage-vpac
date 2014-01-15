@@ -18,10 +18,10 @@
 <p>Project ID: {{ application.project.pid }}<br/>Title: {{ application.project.name }}</p>
 {% else %}
 <p>A username at {{ org_name }} does not allow a user to run jobs or use resources unless the 
-user is a member of an <a href="{% url kg_new_projectapplication %}">approved project</a>.</p>
+user is a member of an <a href="{% url 'kg_new_projectapplication' %}">approved project</a>.</p>
 
 <p>This form is a new user application and application to join a project. Existing users 
-can <a href="{% url kg_user_profile %}">log in</a> to join new or additional projects.</p>
+can <a href="{% url 'kg_user_profile' %}">log in</a> to join new or additional projects.</p>
 
 <p>All academic accounts must use your institutional email address (ie @youruniversity.edu.au). Generic email accounts 
 (ie @gmail, hotmail, etc) or personal email accounts (ie @bigpond, iinet, etc) are not acceptable.</p>
