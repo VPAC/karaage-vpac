@@ -1,12 +1,11 @@
 {% extends "forms.html" %}
 
 {% block title %}Applications{% endblock %}
-{% block style %}<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/forms_custom.css"/>{% endblock %}
+{% block style %}<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/forms_custom.css"/>{% endblock %}
 {% block content_title %}New {{ org_name }} Project Application{% endblock %}
 
-{% block bread_crumbs_1 %}
- &rsaquo; Project Application
-{% endblock %}   
+{% block breadcrumbs %}<div class="breadcrumbs"><a href='{{ base_url|default:"/" }}'>Home</a>&nbsp;› Project Application
+</div>{% endblock %}   
 
 {% block content %}
 {% if saml %}
@@ -21,9 +20,9 @@
 {% if application.header_message %}{{ application.header_message|linebreaks }}{% endif %}
 
 {% include "applications/projectapplication_form_extra.html" %}
-{% if not saml %}
 
-{% endif %}
+{{ form.non_field_errors }}
+
 <fieldset class="module aligned ()">
 <h2>Project Details</h2>
 {% formfield form.name %}
@@ -43,9 +42,3 @@
 	</div>
 </form>
 {% endblock %}
-
-{% block content_footer %}
-<p style="text-align:center">Doc: V510-0001F2/1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Issued: 17.02.2011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reviewed: 17.02.2011&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; By: Sam Morrison</p>
-
-{% endblock %}
-
