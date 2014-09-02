@@ -1,0 +1,55 @@
+<div class="module">
+<h2>About V3</h2>
+<p> Staff and students employed or enrolled at any of V3’s Member Universities
+may gain access to V3’s HPC Facilities through their University subscription
+program.</p>
+
+<p>Access may also be provided to Industry, however, is subject to an
+appropriate arrangement with V3. Interested persons should contact
+<a href="mailto:help@vpac.org">help@vpac.org</a>.</p>
+
+<p>As a Member of V3, each University has a pre-determined share of V3’s
+High Performance Computing capacity. Each University permits their share to be
+used by researchers and students conducting approved research consistent with
+the University's policies.</p>
+
+<p>A staff or student who wishes to apply for an account will require a
+personal account and must be associated with a University approved Project. All
+Projects are approved by the respective University’s Operations Committee
+Member.</p>
+
+<p>Upon approval, authority is provided to the nominated Project Leader to
+authorise personal accounts associated with the Project.</p>
+</div>
+
+<div class="module">
+<h2>Acceptable Use Policy</h2>
+<p>All users of V3’s High Performance Computing Facility must agree to the
+<a href="{% url 'kg_aup' %}">V3 Acceptable Use Policy</a></p>
+</div>
+
+{% if not user.is_authenticated %}
+<div class="module">
+<h2>Existing users</h2>
+<p>If you already have a V3 Account, <a href="{% url 'kg_profile' %}">login to view and edit your account details</a>.</p>
+</div>
+
+<div class="module">
+<h2>New users</h2>
+<p>A personal account is required for each user wishing to access V3’s High
+Performance Computing Facility. You will be required to enter project
+identification details to link your account to the approved Project.</p>
+<p>Please create an account by starting a new application.</p>
+
+<form method="get" action="{% url 'kg_application_new' %}">
+<input class="default" type="submit" value="Start Application"/>
+</form>
+
+</div>
+{% endif %}
+
+<div class="module">
+<h2>Contact</h2>
+<p>Please contact <a href="mailto:help@vpac.org">help@vpac.org</a> for further
+information.</p>
+</div>
